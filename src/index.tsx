@@ -4,12 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ConnectedRouter } from "connected-react-router";
-import * as History from "history";
-import Store from "./reducks/store/store";
 import { Provider } from "react-redux";
-
-const history = History.createBrowserHistory();
-export const store = Store(history);
+import "./assets/style.css";
+import { history, store } from "./reducks/store/rootReducer";
 
 ReactDOM.render(
   <Provider store={store}>
