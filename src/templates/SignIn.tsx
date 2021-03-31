@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import { PrimaryButton } from "../components/CommonParts/index";
+import React, { useContext } from "react";
 import { LoginForm } from "../components/User/index";
-import { Login } from "../reducks/user/type";
-import { useDispatch } from "react-redux";
-import { signIn } from "../reducks/user/operations";
+import { AuthContext } from "../auth/AuthProvider";
 
 const styles: { [key: string]: React.CSSProperties } = {
   formStyle: {
@@ -28,29 +25,18 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 };
 
-const SignUp: React.FC = () => {
-  const [loginUser, setLoginUser] = useState<Login>({
-    email: "",
-    password: "",
-  });
-
-  const dispatch = useDispatch();
-
-  const handleLogin = () => {
-    dispatch(signIn(loginUser));
-  };
+const SignIn: React.FC = () => {
+  const { login } = useContext(AuthContext);
 
   return (
-    <div style={styles.formStyle}>
-      <h2 style={styles.title}>ログイン</h2>
-      <div style={styles.space} />
-      <LoginForm setLoginUser={setLoginUser} />
-      <div style={styles.space} />
-      <div style={styles.button}>
-        <PrimaryButton label={"ログインする"} onClick={() => handleLogin()} />
+    <>
+      <div style={styles.formStyle}>
+        <h2 style={styles.title}>ログイン</h2>
+        <div style={styles.space} />
+        <LoginForm handleSaveData={login} />
       </div>
-    </div>
+    </>
   );
 };
 
-export default SignUp;
+export default SignIn;
