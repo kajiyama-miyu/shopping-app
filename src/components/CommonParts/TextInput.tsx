@@ -5,11 +5,19 @@ export type Props = {
   fullwidth: boolean;
   label: string;
   multiline: boolean;
-  required: boolean;
-  value: any;
+  required?: boolean;
+  value?: any;
   type: string;
   rows: number | string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  variant?: any;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  inputRef?: (ref: any) => void;
+  helperText?: string | undefined;
+  error?: boolean;
+  InputProps?: object;
+  name?: string;
+  autoComplete?: string | undefined;
+  FormHelperTextProps?: object;
 };
 const TextInput: React.FC<Props> = (props) => {
   const {
@@ -21,18 +29,34 @@ const TextInput: React.FC<Props> = (props) => {
     type,
     rows,
     onChange,
+    variant,
+    inputRef,
+    helperText,
+    error,
+    InputProps,
+    name,
+    autoComplete,
+    FormHelperTextProps,
   } = props;
   return (
     <TextField
       fullWidth={fullwidth}
       label={label}
+      name={name}
       margin="dense"
       multiline={multiline}
       required={required}
       value={value}
       rows={rows}
       type={type}
+      variant={variant}
+      inputRef={inputRef}
+      error={error}
+      helperText={helperText}
       onChange={onChange}
+      InputProps={InputProps}
+      autoComplete={autoComplete}
+      FormHelperTextProps={FormHelperTextProps}
     />
   );
 };
