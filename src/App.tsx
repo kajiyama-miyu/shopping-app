@@ -1,11 +1,16 @@
 import React from "react";
 import Router from "./Router";
+import { Loading } from "./components/CommonParts/index";
 
 function App() {
   return (
-    <main>
-      <Router />
-    </main>
+    <>
+      <Loading>
+        <main className="c-main">
+          <Router />
+        </main>
+      </Loading>
+    </>
   );
 }
 

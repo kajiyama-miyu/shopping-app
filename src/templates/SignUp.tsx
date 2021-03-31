@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { PrimaryButton } from "../components/CommonParts/index";
+import React from "react";
 import { UserForm } from "../components/User/index";
 import { User } from "../reducks/user/type";
 import { useDispatch } from "react-redux";
@@ -29,35 +28,20 @@ const styles: { [key: string]: React.CSSProperties } = {
 };
 
 const SignUp: React.FC = () => {
-  const [user, setUser] = useState<User>({
-    userName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    telephone: "",
-    address: "",
-    zipCode: "",
-  });
-
   const dispatch = useDispatch();
 
-  const handleSaveData = () => {
+  const handleSaveData = (user: User) => {
     dispatch(signUp(user));
   };
 
   return (
-    <div style={styles.formStyle}>
-      <h2 style={styles.title}>アカウント登録</h2>
-      <div style={styles.space} />
-      <UserForm setSignUpUser={setUser} />
-      <div style={styles.space} />
-      <div style={styles.button}>
-        <PrimaryButton
-          label={"アカウントを登録する"}
-          onClick={() => handleSaveData()}
-        />
+    <>
+      <div style={styles.formStyle}>
+        <h2 style={styles.title}>アカウント登録</h2>
+        <div style={styles.space} />
+        <UserForm handleSaveData={handleSaveData} />
       </div>
-    </div>
+    </>
   );
 };
 

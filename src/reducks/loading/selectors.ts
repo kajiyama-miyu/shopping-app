@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
-import { Loading } from "./type";
+import { RootState } from "../store/rootReducer";
 
-const loadingSelector = (state: Loading) => state;
+const loadingSelector = (state: RootState) => state.loading;
 
 export const getLoadingState = createSelector(
   [loadingSelector],
