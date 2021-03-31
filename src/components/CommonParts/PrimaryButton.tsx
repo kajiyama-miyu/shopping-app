@@ -15,12 +15,18 @@ const styles: { [key: string]: React.CSSProperties } = {
 export type Props = {
   onClick: () => void;
   label: string;
+  disabled?: boolean;
 };
 
 const PrimaryButton: React.FC<Props> = (props) => {
-  const { label, onClick } = props;
+  const { label, onClick, disabled } = props;
   return (
-    <Button style={styles.button} variant="contained" onClick={onClick}>
+    <Button
+      style={styles.button}
+      variant="contained"
+      onClick={onClick}
+      disabled={disabled}
+    >
       {label}
     </Button>
   );
