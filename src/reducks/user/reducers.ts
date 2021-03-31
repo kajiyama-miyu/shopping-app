@@ -1,16 +1,25 @@
 import * as Actions from "./actions";
-import { initialUserState } from "../store/initialState";
+import { user } from "../store/initialState";
+import { Reducer } from "redux";
+import { Order } from "./type";
 
-export const UserReducer = (
-  state = initialUserState,
-  action: Actions.Action
-) => {
+export const UserReducer: Reducer<Order, Actions.Action> = (
+  state = user,
+  action
+): Order => {
   const { type, payload } = action;
+
   switch (type) {
-    case Actions.SIGN_IN:
-      return { ...state, payload };
-    case Actions.SIGN_OUT:
-      return { ...state, payload };
+    case Actions.FETCH_CART:
+      return {
+        ...state,
+        ...payload,
+      };
+    case Actions.FETCH_ORDER_HISTORY:
+      return {
+        ...state,
+        ...payload,
+      };
     default:
       return state;
   }
