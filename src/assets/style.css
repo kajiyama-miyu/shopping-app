@@ -1,0 +1,44 @@
+.c-section__loading {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 9999;
+}
+
+.c-section__loading > p {
+    color: #444;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.c-section-wrapin {
+    margin: 0 auto;
+    max-width: 810px;
+    position: relative;
+    padding: 0 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.p-grid__row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.c-main {
+    padding: 96px 0
+}
