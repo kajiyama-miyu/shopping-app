@@ -111,7 +111,7 @@ const ItemDetail: React.FC = () => {
     axios.get<Items>("http://35.73.116.71/api/item/" + id).then((res) => {
       setDetail(res.data);
     });
-  }, [setDetail, id]);
+  }, [setDetail]);
 
   useEffect(() => {
     dispatch(fetchToppings());

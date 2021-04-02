@@ -8,6 +8,8 @@ import { OrderForm } from "../components/User/index";
 import { orderProducts } from "../reducks/products/operations";
 import { OrderProducts } from "../reducks/products/type";
 import { showCart } from "../reducks/user/operations";
+import { fetchCartAction } from "../reducks/user/actions";
+import { user } from "../reducks/store/initialState";
 
 const useStyles = makeStyles({
   root: {
@@ -83,6 +85,8 @@ const OrderConfirm: React.FC = () => {
 
   const handleOrder = (orders: OrderProducts) => {
     dispatch(orderProducts(orders));
+
+    dispatch(fetchCartAction(user));
   };
 
   return (

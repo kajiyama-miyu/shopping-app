@@ -54,7 +54,7 @@ const ShoppingCart: React.FC = () => {
 
   useEffect(() => {
     dispatch(showCart());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -67,7 +67,7 @@ const ShoppingCart: React.FC = () => {
           </Grid>
         </Grid>
         <div className={classes.spaceMedium} />
-        {productsInCart.id !== null && productsInCart.order_items.length !== 0 && (
+        {productsInCart.total_price !== 0 && (
           <>
             <Grid
               container
@@ -98,19 +98,18 @@ const ShoppingCart: React.FC = () => {
           </>
         )}
 
-        {productsInCart.id === null ||
-          (productsInCart.order_items.length === 0 && (
-            <>
-              <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid item>
-                  <Typography component="p" variant="h6">
-                    まだカートの中身はありません
-                  </Typography>
-                </Grid>
+        {productsInCart.total_price === 0 && (
+          <>
+            <Grid container spacing={0} alignItems="center" justify="center">
+              <Grid item>
+                <Typography component="p" variant="h6">
+                  まだカートの中身はありません
+                </Typography>
               </Grid>
-              <div className={classes.spaceMedium} />
-            </>
-          ))}
+            </Grid>
+            <div className={classes.spaceMedium} />
+          </>
+        )}
         <div className={classes.spaceSmall} />
         <Grid container spacing={0} alignItems="center" justify="center">
           <Grid item>

@@ -11,8 +11,6 @@ const Loading: React.FC = ({ children }) => {
   const selector = useSelector((state: RootState) => state);
   const isBeingLoaded = getLoadingState(selector);
   const loadingText = getLoadingText(selector);
-  console.log("isloading", isBeingLoaded);
-  console.log("text", loadingText);
 
   return (
     <div>
