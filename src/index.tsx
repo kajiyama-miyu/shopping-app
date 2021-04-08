@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import "./assets/style.css";
 import { history, store } from "./reducks/store/rootReducer";
 
+console.log("history", history);
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
