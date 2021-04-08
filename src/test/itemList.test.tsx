@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
 import { ItemList } from "../templates/index";
 import { Provider } from "react-redux";
-import { history, store } from "../reducks/store/rootReducer";
+import { history } from "../reducks/store/rootReducer";
 import { ProductsReducers } from "../reducks/products/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { routerMiddleware } from "connected-react-router";
