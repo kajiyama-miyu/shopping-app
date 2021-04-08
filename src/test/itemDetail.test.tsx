@@ -1,15 +1,15 @@
 import React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
 import { Provider } from "react-redux";
 import { history, store } from "../reducks/store/rootReducer";
 import { ProductsReducers } from "../reducks/products/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { routerMiddleware } from "connected-react-router";
 import thunk from "redux-thunk";
-import { ItemDetailForTest, ItemDetail } from "../templates/index";
+import { ItemDetailForTest } from "../templates/index";
+import axios from "axios";
+import { Order } from "../reducks/user/type";
 
 afterEach(() => {
   cleanup();
@@ -79,5 +79,39 @@ describe("Auto Calc", () => {
     userEvent.click(await screen.findByText("低脂肪牛乳"));
     userEvent.click(await screen.findByText("豆乳"));
     expect(screen.getByTestId("total-value")).toHaveTextContent(/1,600/);
+  });
+});
+
+describe("Add Cart API", () => {
+  let store: any;
+  beforeEach(() => {
+    store = createStore(
+      combineReducers({ products: ProductsReducers }),
+      applyMiddleware(routerMiddleware(history), thunk)
+    );
+  });
+  it("Should post item in the shopping cart collectly", async () => {
+    render(
+      <Provider store={store}>
+        <ItemDetailForTest />
+      </Provider>
+    );
+    userEvent.click(await screen.findByText("L 700円"));
+    userEvent.click(await screen.findByText("コーヒークリーム"));
+    userEvent.click(await screen.findByText("低脂肪牛乳"));
+    userEvent.click(await screen.findByText("豆乳"));
+    userEvent.click(await screen.getByText("カートに追加する"));
+
+    // expect(await cart.data.order_items[0].item_id.name).toBe("Gorgeous4サンド");
+    // expect(await cart.data.order_items[0].size).toBe("L");
+    // expect(await cart.data.order_items[0].order_toppings[0].topping.name).toBe(
+    //   "コーヒークリーム"
+    // );
+    // expect(await cart.data.order_items[0].order_toppings[1].topping.name).toBe(
+    //   "低脂肪牛乳"
+    // );
+    // expect(await cart.data.order_items[0].order_toppings[2].topping.name).toBe(
+    //   "豆乳"
+    // );
   });
 });
