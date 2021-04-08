@@ -34,7 +34,7 @@ const Header: React.FC = () => {
         <Toolbar className={classes.toolbar}>
           <img
             alt="Logo"
-            src={"/image/header_logo.png"}
+            src="/image/header_logo.png"
             onClick={() => dispatch(push("/showList"))}
           />
           <div className={classes.iconButtons}>
