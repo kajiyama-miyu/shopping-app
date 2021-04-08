@@ -176,6 +176,7 @@ const UserForm: React.FC<Props> = (props) => {
         onChange={(e) => handleChangeForm(e)}
         autoComplete={"off"}
         FormHelperTextProps={{ className: classes.errorColor }}
+        placeholder={"楽々太郎"}
       />
       <TextInput
         fullwidth={true}
@@ -190,6 +191,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         onChange={(e) => handleChangeForm(e)}
         FormHelperTextProps={{ className: classes.errorColor }}
+        placeholder={"rakuraku@abc.com"}
       />
       <TextInput
         fullwidth={true}
@@ -204,6 +206,7 @@ const UserForm: React.FC<Props> = (props) => {
         onChange={(e) => handleChangeForm(e)}
         autoComplete={"off"}
         FormHelperTextProps={{ className: classes.errorColor }}
+        placeholder={"1234567"}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -234,6 +237,7 @@ const UserForm: React.FC<Props> = (props) => {
         type={"text"}
         autoComplete={"off"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"東京都"}
       />
       <TextInput
         fullwidth={true}
@@ -248,6 +252,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         type={"text"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"新宿区"}
       />
       <TextInput
         fullwidth={true}
@@ -262,6 +267,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         type={"text"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"新宿"}
       />
       <TextInput
         fullwidth={true}
@@ -276,6 +282,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         type={"text"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"09011112222"}
       />
       <TextInput
         fullwidth={true}
@@ -290,6 +297,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         type={"password"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"11111111"}
       />
       <TextInput
         fullwidth={true}
@@ -306,6 +314,7 @@ const UserForm: React.FC<Props> = (props) => {
         autoComplete={"off"}
         type={"password"}
         onChange={(e) => handleChangeForm(e)}
+        placeholder={"11111111"}
       />
       <div className={classes.space} />
       <div className={classes.mainButton}>
