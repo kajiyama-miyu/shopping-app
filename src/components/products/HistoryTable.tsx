@@ -57,9 +57,7 @@ const HistoryTable: React.FC<Props> = (props) => {
     if (orders.delivery_time !== null) {
       time = dayjs(orders.delivery_time);
     }
-    timeSt = `${time.month() + 1}月${time.date()}日 ${time
-      .hour(18)
-      .hour()}時${time.minute(0).minute()}分`;
+    timeSt = `${time.month() + 1}月${time.date()}日 ${time.hour(18).hour()}時`;
 
     return timeSt;
   }, [orders.delivery_time]);
@@ -94,7 +92,12 @@ const HistoryTable: React.FC<Props> = (props) => {
                   >
                     <Grid item>
                       <img
-                        src={"/image/" + order.item_id.image_path}
+                        src={
+                          "/image/" +
+                          order.item_id.image_path!.split(
+                            "http://35.73.116.71/static/img_coffee/"
+                          )[1]
+                        }
                         className={classes.image}
                         alt="商品イメージ"
                       />
