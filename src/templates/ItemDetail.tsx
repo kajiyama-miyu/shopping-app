@@ -67,6 +67,7 @@ const ItemDetail: React.FC = () => {
   const selector = useSelector((state: RootState) => state);
   const topping = getToppingState(selector);
   const path = selector.router.location.pathname;
+
   const id = path.split("/itemDetail/")[1];
 
   const changeToppingType = useMemo(() => {
