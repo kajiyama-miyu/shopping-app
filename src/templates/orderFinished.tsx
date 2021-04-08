@@ -68,7 +68,7 @@ const OrderFinished: React.FC = () => {
         <Grid container justify="center" alignItems="center">
           <Grid item>
             <PrimaryButton
-              label={"トップ画面の戻る"}
+              label={"トップ画面に戻る"}
               onClick={() => goBackToTop()}
             />
           </Grid>

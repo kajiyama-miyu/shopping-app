@@ -71,68 +71,92 @@ const ProductTable: React.FC<Props> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartItem.order_items.map((orderItem: OrderItems) => (
-            <TableRow key={orderItem.id}>
-              <ProductTableCell align={"right"}>
-                <Grid
-                  container
-                  alignItems="center"
-                  justify="center"
-                  spacing={0}
-                >
-                  <Grid item>
-                    <img
-                      src={"/image/" + orderItem.item_id.image_path}
-                      className={classes.image}
-                      alt="商品イメージ"
-                    />
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  alignItems="center"
-                  justify="center"
-                  spacing={0}
-                >
-                  <Grid item>{orderItem.item_id.name}</Grid>
-                </Grid>
-              </ProductTableCell>
-              <ProductTableCell align={"center"}>
-                {orderItem.size}
-                {"  "}
-                {orderItem.size === "M" && orderItem.item_id.price_m + "円"}
-                {orderItem.size === "L" && orderItem.item_id.price_l + "円"}
-                {orderItem.quantity}個
-              </ProductTableCell>
-              <ProductTableCell align={"left"}>
-                {orderItem.order_toppings.map((topping) => (
-                  <ul className={classes.list} key={topping.id}>
-                    <li>
-                      {topping.topping.name}
-                      {"  "}
-                      {orderItem.size === "M" && topping.topping.price_m + "円"}
-                      {orderItem.size === "L" && topping.topping.price_l + "円"}
-                    </li>
-                  </ul>
-                ))}
-              </ProductTableCell>
-              <ProductTableCell align={"left"}>
-                {orderItem.size === "M" &&
-                  orderItem.item_id.price_m * orderItem.quantity +
-                    orderItem.order_toppings.length * 200 +
-                    "円"}
-                {orderItem.size === "L" &&
-                  orderItem.item_id.price_l * orderItem.quantity +
-                    orderItem.order_toppings.length * 300 +
-                    "円"}
-              </ProductTableCell>
-              <ProductTableCell align={"left"}>
-                <IconButton onClick={() => handleDeleteProduct(orderItem.id)}>
-                  <Delete />
-                </IconButton>
-              </ProductTableCell>
-            </TableRow>
-          ))}
+          {cartItem.order_items.map(
+            (orderItem: OrderItems) => (
+              console.log(
+                "path",
+                "/image/" +
+                  orderItem.item_id.image_path!.split(
+                    "http://35.73.116.71/static/img_coffee/"
+                  )[1]
+              ),
+              (
+                <TableRow key={orderItem.id}>
+                  <ProductTableCell align={"right"}>
+                    <Grid
+                      container
+                      alignItems="center"
+                      justify="center"
+                      spacing={0}
+                    >
+                      <Grid item>
+                        <img
+                          src={
+                            "/image/" +
+                            orderItem.item_id.image_path!.split(
+                              "http://35.73.116.71/static/img_coffee/"
+                            )[1]
+                          }
+                          className={classes.image}
+                          alt="商品イメージ"
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      container
+                      alignItems="center"
+                      justify="center"
+                      spacing={0}
+                    >
+                      <Grid item>{orderItem.item_id.name}</Grid>
+                    </Grid>
+                  </ProductTableCell>
+                  <ProductTableCell align={"center"}>
+                    {orderItem.size}
+                    {"  "}
+                    {orderItem.size === "M" && orderItem.item_id.price_m + "円"}
+                    {orderItem.size === "L" && orderItem.item_id.price_l + "円"}
+                    {orderItem.quantity}個
+                  </ProductTableCell>
+                  <ProductTableCell align={"left"}>
+                    {orderItem.order_toppings.map((topping) => (
+                      <ul className={classes.list} key={topping.id}>
+                        <li>
+                          {topping.topping.name}
+                          {"  "}
+                          {orderItem.size === "M" &&
+                            topping.topping.price_m + "円"}
+                          {orderItem.size === "L" &&
+                            topping.topping.price_l + "円"}
+                        </li>
+                      </ul>
+                    ))}
+                  </ProductTableCell>
+                  <ProductTableCell align={"left"}>
+                    {orderItem.size === "M" &&
+                      orderItem.item_id.price_m * orderItem.quantity +
+                        orderItem.order_toppings.length *
+                          200 *
+                          orderItem.quantity +
+                        "円"}
+                    {orderItem.size === "L" &&
+                      orderItem.item_id.price_l * orderItem.quantity +
+                        orderItem.order_toppings.length *
+                          300 *
+                          orderItem.quantity +
+                        "円"}
+                  </ProductTableCell>
+                  <ProductTableCell align={"left"}>
+                    <IconButton
+                      onClick={() => handleDeleteProduct(orderItem.id)}
+                    >
+                      <Delete />
+                    </IconButton>
+                  </ProductTableCell>
+                </TableRow>
+              )
+            )
+          )}
         </TableBody>
       </Table>
     </TableContainer>

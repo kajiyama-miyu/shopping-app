@@ -75,6 +75,11 @@ const ItemList: React.FC = () => {
                 </Grid>
               </div>
             ))}
+          {/* {!products && (
+            <Grid container justify="center" alignItems="center" spacing={0}>
+              <Grid item>商品がありません</Grid>
+            </Grid>
+          )} */}
         </div>
       </section>
     </>

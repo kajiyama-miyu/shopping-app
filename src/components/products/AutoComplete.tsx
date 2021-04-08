@@ -52,6 +52,7 @@ const AutocompleteInput: React.FC<Props> = (props) => {
           variant="outlined"
           value={text}
           onChange={(e) => setTexts(e.target.value)}
+          placeholder="商品名"
         />
       )}
     />

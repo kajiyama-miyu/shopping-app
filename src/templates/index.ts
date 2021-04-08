@@ -6,3 +6,4 @@ export { default as ShoppingCart } from "./ShoppingCart";
 export { default as OrderComfirm } from "./OrderConfirm";
 export { default as OrderFinished } from "./orderFinished";
 export { default as OrderHistory } from "./OrderHistory";
+export { default as ItemDetailForTest } from "./itemDetailForTest";

@@ -6,7 +6,7 @@ export type Props = {
   label: string;
   multiline: boolean;
   required?: boolean;
-  value?: any;
+  value: any;
   type: string;
   rows: number | string;
   variant?: any;
@@ -18,6 +18,7 @@ export type Props = {
   name?: string;
   autoComplete?: string | undefined;
   FormHelperTextProps?: object;
+  placeholder?: string;
 };
 const TextInput: React.FC<Props> = (props) => {
   const {
@@ -37,6 +38,7 @@ const TextInput: React.FC<Props> = (props) => {
     name,
     autoComplete,
     FormHelperTextProps,
+    placeholder,
   } = props;
   return (
     <TextField
@@ -57,6 +59,7 @@ const TextInput: React.FC<Props> = (props) => {
       InputProps={InputProps}
       autoComplete={autoComplete}
       FormHelperTextProps={FormHelperTextProps}
+      placeholder={placeholder}
     />
   );
 };

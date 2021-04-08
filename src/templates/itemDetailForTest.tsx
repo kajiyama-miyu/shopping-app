@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemDetail: React.FC = () => {
+const ItemDetailForTest: React.FC = () => {
   const classes = useStyles();
 
   const [detail, setDetail] = useState<Items>({
@@ -66,7 +66,7 @@ const ItemDetail: React.FC = () => {
 
   const selector = useSelector((state: RootState) => state);
   const topping = getToppingState(selector);
-  const path = selector.router.location.pathname;
+  const path = "/itemDetail/1";
 
   const id = path.split("/itemDetail/")[1];
 
@@ -109,7 +109,7 @@ const ItemDetail: React.FC = () => {
   }, [autoCalc]);
 
   useEffect(() => {
-    axios.get<Items>("http://35.73.116.71/api/item/" + id).then((res) => {
+    axios.get<Items>("http://35.73.116.71/api/item/" + 1).then((res) => {
       setDetail(res.data);
     });
   }, [setDetail]);
@@ -158,6 +158,7 @@ const ItemDetail: React.FC = () => {
             <PrimaryCheckBox toppings={topping} setToppings={setToppings} />
           </Grid>
         </Grid>
+
         <Grid container spacing={0} alignItems="center" justify="center">
           <Grid item className={classes.space} xs={1}>
             <SelectBox setNumberOfProducts={setNumberOfProducts} />
@@ -167,7 +168,9 @@ const ItemDetail: React.FC = () => {
         <Grid container spacing={0} alignItems="center" justify="center">
           <Grid item className={classes.priceWidth}>
             <Typography component="p" variant="h5">
-              合計金額:　{totalPrice.toLocaleString()}円(税抜)
+              <div data-testid="total-value">
+                合計金額:　{totalPrice.toLocaleString()}円(税抜)
+              </div>
             </Typography>
           </Grid>
         </Grid>
@@ -184,4 +187,4 @@ const ItemDetail: React.FC = () => {
     </>
   );
 };
-export default ItemDetail;
+export default ItemDetailForTest;
