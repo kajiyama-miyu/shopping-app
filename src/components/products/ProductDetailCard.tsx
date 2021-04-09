@@ -34,9 +34,6 @@ type Props = {
 
 const ProductDetailCard: React.FC<Props> = (props) => {
   const { detail } = props;
-  const path = detail.image_path!.split(
-    "http://35.73.116.71/static/img_coffee/"
-  )[1];
 
   const classes = useStyles();
   return (
@@ -46,7 +43,7 @@ const ProductDetailCard: React.FC<Props> = (props) => {
         alt="商品イメージ画像"
         title=""
         className={classes.cover}
-        image={"/image/" + path}
+        image={"/image/" + detail.image_path}
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
