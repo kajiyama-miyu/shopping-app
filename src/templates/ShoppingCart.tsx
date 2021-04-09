@@ -41,7 +41,6 @@ const ShoppingCart: React.FC = () => {
 
   const selector = useSelector((state: RootState) => state);
   const productsInCart = getCartItem(selector);
-  console.log("products", productsInCart);
 
   const dispatch = useDispatch();
 
