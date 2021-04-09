@@ -56,7 +56,8 @@ export const signIn = (loginUser: Login) => {
       .then((res) => {
         const token = res.data;
         const arr = Object.values(token);
-        const tokenSt = arr[0];
+
+        const tokenSt = arr[1];
 
         if (!res.data) {
           dispatch(hideLoadingAction());

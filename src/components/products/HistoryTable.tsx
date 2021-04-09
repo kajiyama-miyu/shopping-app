@@ -92,12 +92,7 @@ const HistoryTable: React.FC<Props> = (props) => {
                   >
                     <Grid item>
                       <img
-                        src={
-                          "/image/" +
-                          order.item_id.image_path!.split(
-                            "http://35.73.116.71/static/img_coffee/"
-                          )[1]
-                        }
+                        src={"/image/" + order.item_id.image_path}
                         className={classes.image}
                         alt="商品イメージ"
                       />

@@ -46,7 +46,6 @@ const ProductsCard: React.FC<Props> = (props) => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
-  const path = imagePath!.split("http://35.73.116.71/static/img_coffee/")[1];
 
   return (
     <Card className={classes.root}>
@@ -54,7 +53,7 @@ const ProductsCard: React.FC<Props> = (props) => {
         <CardMedia
           component="img"
           alt="商品イメージ画像"
-          image={"/image/" + path}
+          image={"/image/" + imagePath}
           height="auto"
           title=""
           onClick={() => dispatch(push("/itemDetail/" + id))}
